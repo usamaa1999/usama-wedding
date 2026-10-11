@@ -1,0 +1,55 @@
+:root {
+  --burgundy: #4a1118;
+  --burgundy-2: #6a2029;
+  --cream: #fbf5e9;
+  --cream-deep: #f2e6d2;
+  --gold: #b99753;
+  --gold-light: #ddc78f;
+  --ink: #402a27;
+}
+* { box-sizing: border-box; }
+html { min-height: 100%; background: var(--burgundy); }
+body {
+  margin: 0; min-height: 100vh; padding: 18px;
+  display: grid; place-items: center;
+  background: radial-gradient(ellipse at top, #7b3036 0, var(--burgundy) 62%);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.shell {
+  width: min(100%, 600px); min-height: 86vh; position: relative; overflow: hidden;
+  padding: clamp(30px, 7vw, 58px) clamp(20px, 6vw, 54px);
+  text-align: center; border: 1px solid var(--gold); outline: 1px solid #b9975366; outline-offset: -8px;
+  border-radius: 3px; background: var(--cream);
+  box-shadow: 0 18px 55px #18030770;
+  animation: rise-in .8s ease both;
+}
+.shell::before, .shell::after { content: ''; position: absolute; width: 150px; height: 150px; border: 1px solid #b9975355; border-radius: 50%; pointer-events: none; }
+.shell::before { top: -95px; left: -75px; }
+.shell::after { bottom: -100px; right: -65px; }
+.eyebrow { margin: 5px 0 18px; text-transform: uppercase; letter-spacing: .23em; font: 11px/1.6 Arial, sans-serif; color: var(--burgundy-2); }
+h1 { margin: 0; color: var(--burgundy); font-size: clamp(36px, 9vw, 62px); font-weight: 400; line-height: 1.12; }
+.ampersand { display: block; margin: 3px 0; color: var(--gold); font-size: .66em; font-style: italic; }
+.intro { max-width: 390px; margin: 22px auto 16px; font-size: 16px; line-height: 1.7; color: #735a4f; }
+.ornament { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 22px 0 28px; color: var(--gold); font-size: 24px; }
+.ornament span { display: inline-block; width: 55px; height: 1px; background: var(--gold); }
+.event-list { display: grid; gap: 14px; text-align: left; }
+.event-card { padding: 18px 18px 17px; border: 1px solid #d9c28d; background: linear-gradient(135deg, #fffaf0, var(--cream-deep)); animation: fade-up .65s ease both; }
+.event-card:nth-child(2) { animation-delay: .08s; }
+.event-card:nth-child(3) { animation-delay: .16s; }
+.event-date { margin: 0 0 6px; color: var(--burgundy-2); text-transform: uppercase; letter-spacing: .12em; font: 11px/1.5 Arial, sans-serif; }
+.event-title { margin: 0; font-size: 23px; line-height: 1.25; font-weight: 400; color: var(--burgundy); }
+.event-subtitle { margin: 7px 0 0; color: #765c4f; font: 13px/1.6 Arial, sans-serif; }
+.event-meta { margin: 12px 0 0; color: #5c4940; font: 12px/1.7 Arial, sans-serif; }
+.calendar-button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: 100%; margin-top: 14px; padding: 12px 14px; border: 1px solid var(--burgundy); background: var(--burgundy); color: #fff8e9; text-decoration: none; font: 12px/1.4 Arial, sans-serif; letter-spacing: .03em; cursor: pointer; transition: background .2s ease, color .2s ease, transform .2s ease; }
+.calendar-button:hover, .calendar-button:focus-visible { background: var(--gold); border-color: var(--gold); color: #28120f; transform: translateY(-1px); }
+.closing { margin: 26px auto 0; max-width: 360px; color: #735a4f; font-style: italic; line-height: 1.7; }
+.footer-mark { margin: 14px 0 0; color: var(--burgundy); font-size: 14px; }
+.floral { color: var(--gold); opacity: .75; letter-spacing: .42em; font-size: 20px; }
+.floral-top { margin-bottom: 22px; }
+.floral-bottom { margin-top: 30px; font-size: 17px; }
+.notice { margin: 10px 0 0; color: #765c4f; font: 11px/1.5 Arial, sans-serif; }
+@keyframes rise-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (max-width: 380px) { body { padding: 8px; } .shell { padding: 28px 17px; min-height: 94vh; } .event-card { padding: 15px; } .event-title { font-size: 21px; } }
